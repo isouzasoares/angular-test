@@ -8,6 +8,8 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
+
+teste de tag icaro
 """
 
 import os
@@ -37,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'agenda'
+    'agenda',
+    'dynamic_forms',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -49,6 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'dynamic_forms.middlewares.FormModelMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'

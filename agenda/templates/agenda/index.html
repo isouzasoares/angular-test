@@ -53,6 +53,34 @@
     </script>
 {% endblock %}
 {% block content %}
+
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDsl88xB9qtnlr4-b6JS5M386UCKEPy2HY",
+    authDomain: "teste-sismart-notifications.firebaseapp.com",
+    databaseURL: "https://teste-sismart-notifications.firebaseio.com",
+    storageBucket: "teste-sismart-notifications.appspot.com",
+    messagingSenderId: "1079879295921"
+  };
+  firebase.initializeApp(config);
+
+ const messaging = firebase.messaging();
+ messaging.requestPermission()
+.then(function() {
+  console.log('Notification permission granted.');
+  return messaging.getToken()
+  // TODO(developer): Retrieve a Instance ID token for use with FCM.
+  // ...
+})
+.then(function(token){
+  console.log(token)
+})
+.catch(function(err) {
+  console.log('Unable to get permission to notify. ', err);
+});
+</script>
   {% verbatim %}
   <div class="jumbotron" ng-controller="listaTelefonicaCtrl">
     <h4>{{app}}</h4>

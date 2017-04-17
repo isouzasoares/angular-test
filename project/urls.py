@@ -19,5 +19,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('agenda.urls'))
+    url(r'^dynamic_forms/',
+        include('dynamic_forms.urls', namespace='dynamic_forms')),
+    url(r'^', include('agenda.urls')),
 ]
